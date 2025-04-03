@@ -78,31 +78,31 @@ const FormContent = memo(function FormContent({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">Tittel</Label>
         <Input
           id="title"
           name="title"
           value={formData.title}
           onChange={handleInputChange}
-          placeholder="What feature would you like to see?"
+          placeholder="Hvilken funksjon ønsker du å se?"
           required
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Beskrivelse</Label>
         <Textarea
           id="description"
           name="description"
           value={formData.description}
           onChange={handleInputChange}
-          placeholder="Describe your feature request in detail..."
+          placeholder="Beskriv funksjonsønsket ditt i detalj..."
           required
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="category">Category</Label>
+        <Label htmlFor="category">Kategori</Label>
         <Select
           value={formData.category}
           onValueChange={(value: string) => handleInputChange({ 
@@ -110,26 +110,26 @@ const FormContent = memo(function FormContent({
           })}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select a category" />
+            <SelectValue placeholder="Velg en kategori" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="UI">UI/UX</SelectItem>
-            <SelectItem value="FUNCTIONALITY">Functionality</SelectItem>
-            <SelectItem value="PERFORMANCE">Performance</SelectItem>
-            <SelectItem value="SECURITY">Security</SelectItem>
-            <SelectItem value="OTHER">Other</SelectItem>
+            <SelectItem value="FUNCTIONALITY">Funksjonalitet</SelectItem>
+            <SelectItem value="PERFORMANCE">Ytelse</SelectItem>
+            <SelectItem value="SECURITY">Sikkerhet</SelectItem>
+            <SelectItem value="OTHER">Annet</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="tags">Tags</Label>
+        <Label htmlFor="tags">Tagger</Label>
         <Input
           id="tags"
           name="tags"
           value={tagInput}
           onChange={handleTagInputChange}
-          placeholder="Enter tags separated by commas"
+          placeholder="Skriv inn tagger separert med komma"
         />
         {formData.tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-2">
@@ -161,7 +161,7 @@ const FormContent = memo(function FormContent({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="priority">Priority</Label>
+        <Label htmlFor="priority">Prioritet</Label>
         <Select
           value={formData.priority.toString()}
           onValueChange={(value: string) => handleInputChange({ 
@@ -169,38 +169,38 @@ const FormContent = memo(function FormContent({
           })}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select priority" />
+            <SelectValue placeholder="Velg prioritet" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="0">Low</SelectItem>
-            <SelectItem value="1">Medium</SelectItem>
-            <SelectItem value="2">High</SelectItem>
-            <SelectItem value="3">Critical</SelectItem>
+            <SelectItem value="0">Lav</SelectItem>
+            <SelectItem value="1">Middels</SelectItem>
+            <SelectItem value="2">Høy</SelectItem>
+            <SelectItem value="3">Kritisk</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="authorName">Your Name</Label>
+        <Label htmlFor="authorName">Ditt navn</Label>
         <Input
           id="authorName"
           name="authorName"
           value={formData.authorName}
           onChange={handleInputChange}
-          placeholder="Enter your name"
+          placeholder="Skriv inn ditt navn"
           required
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="authorEmail">Your Email (Optional)</Label>
+        <Label htmlFor="authorEmail">Din e-post (Valgfritt)</Label>
         <Input
           id="authorEmail"
           name="authorEmail"
           type="email"
           value={formData.authorEmail}
           onChange={handleInputChange}
-          placeholder="Enter your email"
+          placeholder="Skriv inn din e-post"
         />
       </div>
 
@@ -291,14 +291,14 @@ export function FeatureRequestForm({ boardSlug, variant = "default" }: FeatureRe
           className="w-full"
         >
           <Icons.plus className="mr-2 h-4 w-4" />
-          {variant === "empty-state" ? "Submit Your First Feature Request" : "Submit Feature Request"}
+          {variant === "empty-state" ? "Send inn ditt første funksjonsønske" : "Send inn funksjonsønske"}
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[calc(100%-2rem)] sm:w-full sm:max-w-[425px] p-4 sm:p-6 gap-4">
         <DialogHeader>
-          <DialogTitle className="text-lg sm:text-xl">Submit Feature Request</DialogTitle>
+          <DialogTitle className="text-lg sm:text-xl">Send inn funksjonsønske</DialogTitle>
           <DialogDescription>
-            Share your ideas and help shape the future of this project. Fill out the form below to submit your feature request.
+            Del dine ideer og bidra til å forme fremtiden for dette prosjektet. Fyll ut skjemaet nedenfor for å sende inn ditt funksjonsønske.
           </DialogDescription>
         </DialogHeader>
         <FormContent 
