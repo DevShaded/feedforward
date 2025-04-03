@@ -161,3 +161,38 @@ export async function getDashboardData() {
     }>,
   }
 }
+
+export async function getFeatures() {
+  const session = await getServerSession(authOptions)
+
+  if (!session?.user?.id) {
+    return null
+  }
+
+  const features = await prisma.feature.findMany({
+    where: {
+      board: {
+        userId: session.user.id,
+      },
+    },
+    include: {
+      board: {
+        select: {
+          name: true,
+          slug: true,
+        },
+      },
+      _count: {
+        select: {
+          votes: true,
+          comments: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  })
+
+  return features
+} 
