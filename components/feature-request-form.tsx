@@ -76,7 +76,7 @@ const FormContent = memo(function FormContent({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4" role="form" aria-label="Funksjonsforespørsel skjema">
       <div className="space-y-2">
         <Label htmlFor="title">Tittel</Label>
         <Input
@@ -86,6 +86,8 @@ const FormContent = memo(function FormContent({
           onChange={handleInputChange}
           placeholder="Hvilken funksjon ønsker du å se?"
           required
+          aria-required="true"
+          aria-label="Tittel på funksjonsforespørsel"
         />
       </div>
 
@@ -98,6 +100,8 @@ const FormContent = memo(function FormContent({
           onChange={handleInputChange}
           placeholder="Beskriv funksjonsønsket ditt i detalj..."
           required
+          aria-required="true"
+          aria-label="Beskrivelse av funksjonsforespørsel"
         />
       </div>
 
@@ -109,15 +113,15 @@ const FormContent = memo(function FormContent({
             target: { name: 'category', value } 
           })}
         >
-          <SelectTrigger>
+          <SelectTrigger aria-label="Velg kategori">
             <SelectValue placeholder="Velg en kategori" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="UI">UI/UX</SelectItem>
-            <SelectItem value="FUNCTIONALITY">Funksjonalitet</SelectItem>
-            <SelectItem value="PERFORMANCE">Ytelse</SelectItem>
-            <SelectItem value="SECURITY">Sikkerhet</SelectItem>
-            <SelectItem value="OTHER">Annet</SelectItem>
+            <SelectItem value="UI" aria-label="UI/UX">UI/UX</SelectItem>
+            <SelectItem value="FUNCTIONALITY" aria-label="Funksjonalitet">Funksjonalitet</SelectItem>
+            <SelectItem value="PERFORMANCE" aria-label="Ytelse">Ytelse</SelectItem>
+            <SelectItem value="SECURITY" aria-label="Sikkerhet">Sikkerhet</SelectItem>
+            <SelectItem value="OTHER" aria-label="Annet">Annet</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -130,13 +134,15 @@ const FormContent = memo(function FormContent({
           value={tagInput}
           onChange={handleTagInputChange}
           placeholder="Skriv inn tagger separert med komma"
+          aria-label="Legg til tagger"
         />
         {formData.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-2">
+          <div className="flex flex-wrap gap-1 mt-2" role="list" aria-label="Valgte tagger">
             {formData.tags.map((tag, index) => (
               <span
                 key={index}
                 className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                role="listitem"
               >
                 {tag}
                 <button
@@ -151,6 +157,7 @@ const FormContent = memo(function FormContent({
                     })
                   }}
                   className="ml-1 hover:text-destructive"
+                  aria-label={`Fjern tagg ${tag}`}
                 >
                   ×
                 </button>
@@ -168,14 +175,14 @@ const FormContent = memo(function FormContent({
             target: { name: 'priority', value: parseInt(value) } 
           })}
         >
-          <SelectTrigger>
+          <SelectTrigger aria-label="Velg prioritet">
             <SelectValue placeholder="Velg prioritet" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="0">Lav</SelectItem>
-            <SelectItem value="1">Middels</SelectItem>
-            <SelectItem value="2">Høy</SelectItem>
-            <SelectItem value="3">Kritisk</SelectItem>
+            <SelectItem value="0" aria-label="Lav prioritet">Lav</SelectItem>
+            <SelectItem value="1" aria-label="Middels prioritet">Middels</SelectItem>
+            <SelectItem value="2" aria-label="Høy prioritet">Høy</SelectItem>
+            <SelectItem value="3" aria-label="Kritisk prioritet">Kritisk</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -189,6 +196,8 @@ const FormContent = memo(function FormContent({
           onChange={handleInputChange}
           placeholder="Skriv inn ditt navn"
           required
+          aria-required="true"
+          aria-label="Ditt navn"
         />
       </div>
 
@@ -201,20 +210,26 @@ const FormContent = memo(function FormContent({
           value={formData.authorEmail}
           onChange={handleInputChange}
           placeholder="Skriv inn din e-post"
+          aria-label="Din e-postadresse (valgfritt)"
         />
       </div>
 
       {error && (
-        <div className="text-sm text-red-500">
+        <div className="text-sm text-red-500" role="alert" aria-live="assertive">
           {error}
         </div>
       )}
 
-      <Button type="submit" disabled={isSubmitting} className="w-full">
+      <Button 
+        type="submit" 
+        disabled={isSubmitting} 
+        className="w-full"
+        aria-label={isSubmitting ? "Sender inn skjema..." : "Send inn funksjonsforespørsel"}
+      >
         {isSubmitting && (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
         )}
-        Submit Request
+        {isSubmitting ? "Sender..." : "Send inn forespørsel"}
       </Button>
     </form>
   )
