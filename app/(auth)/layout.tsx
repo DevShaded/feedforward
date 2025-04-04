@@ -1,6 +1,3 @@
-import Link from "next/link"
-import { Icons } from "@/components/icons"
-
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
@@ -25,7 +22,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              "This platform has revolutionized how we collect and manage feature requests from our users."
+              &ldquo;This platform has revolutionized how we collect and manage feature requests from our users.&rdquo;
             </p>
             <footer className="text-sm">Sofia Davis</footer>
           </blockquote>

@@ -41,7 +41,6 @@ interface CustomChangeEvent {
 }
 
 interface FormContentProps {
-  boardSlug: string
   formData: FormData
   isSubmitting: boolean
   error: string | null
@@ -50,7 +49,6 @@ interface FormContentProps {
 }
 
 const FormContent = memo(function FormContent({ 
-  boardSlug,
   formData,
   isSubmitting,
   error,
@@ -317,7 +315,6 @@ export function FeatureRequestForm({ boardSlug, variant = "default" }: FeatureRe
           </DialogDescription>
         </DialogHeader>
         <FormContent 
-          boardSlug={boardSlug}
           formData={formData}
           isSubmitting={isSubmitting}
           error={error}

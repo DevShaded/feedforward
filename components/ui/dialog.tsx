@@ -68,6 +68,7 @@ const DialogHeader = ({
       className
     )}
     role="heading"
+    aria-level={1}
     {...props}
   />
 )
