@@ -101,7 +101,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="container max-w-7xl mx-auto py-8 space-y-8">
+    <div className="container max-w-7xl mx-auto py-8 space-y-8 px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">
@@ -110,20 +110,6 @@ export default function DashboardPage() {
           <p className="text-muted-foreground mt-2">
             Administrer dine tilbakemeldingsbrett og følg brukerfeedback.
           </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <Input
-            placeholder="Søk i brett..."
-            className="w-[300px]"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <Link href="/dashboard/new-board">
-            <Button>
-              <Icons.plus className="mr-2 h-4 w-4" />
-              Opprett nytt brett
-            </Button>
-          </Link>
         </div>
       </div>
 
@@ -179,6 +165,20 @@ export default function DashboardPage() {
         </TabsList>
 
         <TabsContent value="boards" className="space-y-4">
+        <div className="flex items-center gap-x-2">
+          <Input
+            placeholder="Søk i brett..."
+            className="w-[300px]"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <Link href="/dashboard/new-board">
+            <Button>
+              <Icons.plus className="mr-2 h-4 w-4" />
+              Opprett nytt brett
+            </Button>
+          </Link>
+        </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredBoards.map((board) => (
               <Card key={board.id} className="hover:bg-muted/50 transition-colors">
