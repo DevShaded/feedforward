@@ -82,7 +82,7 @@ const LandingPage = () => {
           variants={bounceIn}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
         >
-          Transformer Tilbakemeldingsprosessen Din
+          Transformer din tilbakemeldingsprosess
         </motion.h2>
         <motion.p 
           variants={slideIn}
@@ -124,28 +124,32 @@ const LandingPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {[
             {
+              id: 'analytics',
               icon: <BarChart2 size={28} className="text-blue-600" />,
               title: "Analytisk Dashboard",
               description: "Få sanntidsinnsikt med vårt kraftfulle analytiske dashboard. Spor trender i tilbakemeldinger og ta datadrevne beslutninger."
             },
             {
+              id: 'team',
               icon: <Users size={28} className="text-blue-600" />,
               title: "Team Samarbeid",
               description: "Samarbeid sømløst med teamet ditt. Del tilbakemeldinger, tildel oppgaver og følg fremgang på ett sted."
             },
             {
+              id: 'security',
               icon: <Shield size={28} className="text-blue-600" />,
               title: "Sikker & Privat",
               description: "Dine data er beskyttet med bedriftsgrad sikkerhet. Vi bruker kryptering og følger strenge personvernstandarder."
             },
             {
+              id: 'efficiency',
               icon: <Zap size={28} className="text-blue-600" />,
               title: "Rask & Effektiv",
               description: "Rask oppsett og intuitivt grensesnitt. Kom i gang på minutter og se resultater umiddelbart."
             }
-          ].map((feature, index) => (
+          ].map((feature) => (
             <motion.div
-              key={index}
+              key={feature.id}
               variants={bounceIn}
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
@@ -177,21 +181,24 @@ const LandingPage = () => {
         <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
           {[
             {
+              id: 'what-is',
               question: "Hva er FeedForward?",
               answer: "FeedForward er en plattform for tilbakemeldingshåndtering som hjelper bedrifter med å samle inn, analysere og handle på brukertilbakemeldinger effektivt."
             },
             {
+              id: 'how-works',
               question: "Hvordan fungerer det?",
               answer: "Opprett tilbakemeldingsskjemaer, del dem med brukerne dine, samle inn svar og analyser dataene for å ta informerte beslutninger."
             },
             {
+              id: 'security-faq',
               question: "Er det sikkert?",
               answer: "Ja, vi bruker bransjestandard kryptering og sikkerhetstiltak for å beskytte dine data."
             }
-          ].map((faq, index) => (
+          ].map((faq) => (
             <motion.div
-              key={index}
-              variants={bounceIn}
+              key={faq.id}
+              variants={fadeInUp}
               className="bg-white p-4 sm:p-6 rounded-lg shadow-sm"
             >
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{faq.question}</h3>
