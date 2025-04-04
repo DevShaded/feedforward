@@ -9,7 +9,7 @@ import { FeatureList } from "@/components/feature-list"
 import prisma from "@/lib/prisma"
 
 interface BoardPageProps {
-  params: Promise<{ slug: string }> | { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function BoardPage({ params }: BoardPageProps) {

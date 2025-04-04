@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server"
 import prisma from "@/lib/prisma"
 
-interface RouteParams {
-  params: Promise<{ slug: string; id: string }> | { slug: string; id: string }
+type Props = {
+  params: Promise<{
+    slug: string
+    id: string
+  }>
 }
 
 export async function GET(
   request: Request,
-  { params }: RouteParams
+  { params }: Props
 ) {
   try {
     const { slug, id } = await params
@@ -48,16 +51,16 @@ export async function GET(
   }
 }
 
-export async function PATCH(request: Request, props: { params: Promise<{ slug: string; id: string }> }) {
-  const params = await props.params;
+export async function PATCH(request: Request, { params }: Props) {
   try {
     const { status } = await request.json()
+    const { id, slug } = await params
 
     const feature = await prisma.feature.findFirst({
       where: {
-        id: params.id,
+        id,
         board: {
-          slug: params.slug,
+          slug,
         },
       },
     })
@@ -71,7 +74,7 @@ export async function PATCH(request: Request, props: { params: Promise<{ slug: s
 
     const updatedFeature = await prisma.feature.update({
       where: {
-        id: params.id,
+        id,
       },
       data: {
         status,
@@ -96,14 +99,15 @@ export async function PATCH(request: Request, props: { params: Promise<{ slug: s
   }
 }
 
-export async function DELETE(request: Request, props: { params: Promise<{ slug: string; id: string }> }) {
-  const params = await props.params;
+export async function DELETE(request: Request, { params }: Props) {
   try {
+    const { id, slug } = await params
+
     const feature = await prisma.feature.findFirst({
       where: {
-        id: params.id,
+        id,
         board: {
-          slug: params.slug,
+          slug,
         },
       },
     })
@@ -117,7 +121,7 @@ export async function DELETE(request: Request, props: { params: Promise<{ slug: 
 
     await prisma.feature.delete({
       where: {
-        id: params.id,
+        id,
       },
     })
 
@@ -133,7 +137,7 @@ export async function DELETE(request: Request, props: { params: Promise<{ slug: 
 
 export async function POST(
   request: Request,
-  { params }: RouteParams
+  { params }: Props
 ) {
   try {
     const { slug, id } = await params

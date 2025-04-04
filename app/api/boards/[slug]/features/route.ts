@@ -5,7 +5,7 @@ import prisma from "@/lib/prisma"
 import { Prisma } from "@prisma/client"
 
 interface RouteParams {
-  params: Promise<{ slug: string }> | { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function POST(
