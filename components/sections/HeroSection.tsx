@@ -59,13 +59,13 @@ export const HeroSection = () => {
     >
       <motion.h2 
         variants={bounceIn}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6"
       >
         Transformer din tilbakemeldingsprosess
       </motion.h2>
       <motion.p 
         variants={slideIn}
-        className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
+        className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
       >
         FeedForward hjelper deg med å samle inn, analysere og handle på tilbakemeldinger effektivt. 
         Skap bedre produkter og tjenester gjennom meningsfulle brukerinnsikter.

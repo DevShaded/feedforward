@@ -28,25 +28,25 @@ export const FeaturesSection = () => {
   const features = [
     {
       id: 'analytics',
-      icon: <BarChart2 size={28} className="text-blue-600" />,
+      icon: <BarChart2 size={28} className="text-primary" />,
       title: "Analytisk Dashboard",
       description: "Få sanntidsinnsikt med vårt kraftfulle analytiske dashboard. Spor trender i tilbakemeldinger og ta datadrevne beslutninger."
     },
     {
       id: 'team',
-      icon: <Users size={28} className="text-blue-600" />,
+      icon: <Users size={28} className="text-primary" />,
       title: "Team Samarbeid",
       description: "Samarbeid sømløst med teamet ditt. Del tilbakemeldinger, tildel oppgaver og følg fremgang på ett sted."
     },
     {
       id: 'security',
-      icon: <Shield size={28} className="text-blue-600" />,
+      icon: <Shield size={28} className="text-primary" />,
       title: "Sikker & Privat",
       description: "Dine data er beskyttet med bedriftsgrad sikkerhet. Vi bruker kryptering og følger strenge personvernstandarder."
     },
     {
       id: 'efficiency',
-      icon: <Zap size={28} className="text-blue-600" />,
+      icon: <Zap size={28} className="text-primary" />,
       title: "Rask & Effektiv",
       description: "Rask oppsett og intuitivt grensesnitt. Kom i gang på minutter og se resultater umiddelbart."
     }
@@ -58,13 +58,13 @@ export const FeaturesSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="container mx-auto px-4 py-12 sm:py-20 bg-white"
+      className="container mx-auto px-4 py-12 sm:py-20 bg-background"
     >
       <motion.h2 
         variants={bounceIn}
         whileInView="animate"
         viewport={{ once: true }}
-        className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 sm:mb-12"
+        className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-8 sm:mb-12"
       >
         Kraftfulle Funksjoner
       </motion.h2>
@@ -74,11 +74,11 @@ export const FeaturesSection = () => {
             key={feature.id}
             variants={bounceIn}
             whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+            className="bg-card p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="mb-3 sm:mb-4">{feature.icon}</div>
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-            <p className="text-sm sm:text-base text-gray-600">{feature.description}</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
           </motion.div>
         ))}
       </div>

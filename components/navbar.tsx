@@ -7,6 +7,7 @@ import { useSession, signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Icons } from "@/components/icons"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navbar() {
   const pathname = usePathname()
@@ -86,7 +87,7 @@ export function Navbar() {
   )
 
   return (
-    <header className="max-w-7xl mx-auto sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="max-w-7xl mx-auto sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-gray-800">
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
@@ -99,11 +100,13 @@ export function Navbar() {
         <div className="flex-1 items-center justify-between space-x-2 md:justify-end hidden md:flex">
           <div className="flex items-center space-x-4">
             <NavItems />
+            <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex flex-1 items-center justify-end md:hidden">
+          <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -117,6 +120,9 @@ export function Navbar() {
               </SheetHeader>
               <div className="flex flex-col space-y-2 mt-4">
                 <NavItems />
+                <div className="pt-4">
+                  <ThemeToggle />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

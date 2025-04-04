@@ -70,7 +70,7 @@ export const CTASection = () => {
           variants={bounceIn}
           whileInView="animate"
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6"
         >
           Hva er det du venter på?
         </motion.h2>
@@ -78,7 +78,7 @@ export const CTASection = () => {
           variants={slideIn}
           whileInView="animate"
           viewport={{ once: true }}
-          className="text-lg sm:text-xl text-gray-600 mb-8"
+          className="text-lg sm:text-xl text-muted-foreground mb-8"
         >
           Kom i gang med FeedForward i dag og transformér måten du håndterer tilbakemeldinger på.
         </motion.p>

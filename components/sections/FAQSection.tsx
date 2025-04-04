@@ -60,7 +60,7 @@ export const FAQSection = () => {
         variants={bounceIn}
         whileInView="animate"
         viewport={{ once: true }}
-        className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 sm:mb-12"
+        className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-8 sm:mb-12"
       >
         Ofte Stilte Spørsmål
       </motion.h2>
@@ -69,10 +69,10 @@ export const FAQSection = () => {
           <motion.div
             key={faq.id}
             variants={fadeInUp}
-            className="bg-white p-4 sm:p-6 rounded-lg shadow-sm"
+            className="bg-card p-4 sm:p-6 rounded-lg shadow-sm"
           >
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{faq.question}</h3>
-            <p className="text-sm sm:text-base text-gray-600">{faq.answer}</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">{faq.question}</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">{faq.answer}</p>
           </motion.div>
         ))}
       </div>
