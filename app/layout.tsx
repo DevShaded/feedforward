@@ -28,9 +28,11 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="no">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        role="application"
+        aria-label="FeedForward applikasjon"
       >
         <Providers>
           <RootLayout>{children}</RootLayout>

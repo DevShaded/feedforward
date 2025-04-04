@@ -16,8 +16,8 @@ export function Navbar() {
   const NavItems = () => (
     <>
       {status === "loading" ? (
-        <div className="flex items-center">
-          <Icons.spinner className="h-4 w-4 animate-spin" />
+        <div className="flex items-center" role="status" aria-label="Laster innhold">
+          <Icons.spinner className="h-4 w-4 animate-spin" aria-hidden="true" />
         </div>
       ) : session ? (
         <>
@@ -26,9 +26,10 @@ export function Navbar() {
               variant={pathname === "/features" ? "default" : "ghost"}
               className="w-full justify-start"
               onClick={() => setIsOpen(false)}
+              aria-current={pathname === "/features" ? "page" : undefined}
             >
-              <Icons.sparkles className="mr-2 h-4 w-4" />
-              Features
+              <Icons.sparkles className="mr-2 h-4 w-4" aria-hidden="true" />
+              Funksjoner
             </Button>
           </Link>
           <Link href="/dashboard">
@@ -36,9 +37,10 @@ export function Navbar() {
               variant={pathname === "/dashboard" ? "default" : "ghost"}
               className="w-full justify-start"
               onClick={() => setIsOpen(false)}
+              aria-current={pathname === "/dashboard" ? "page" : undefined}
             >
-              <Icons.layoutDashboard className="mr-2 h-4 w-4" />
-              Dashboard
+              <Icons.layoutDashboard className="mr-2 h-4 w-4" aria-hidden="true" />
+              Dashbord
             </Button>
           </Link>
           <Button
@@ -48,9 +50,10 @@ export function Navbar() {
               setIsOpen(false)
               signOut()
             }}
+            aria-label="Logg ut"
           >
-            <Icons.logout className="mr-2 h-4 w-4" />
-            Sign Out
+            <Icons.logout className="mr-2 h-4 w-4" aria-hidden="true" />
+            Logg ut
           </Button>
         </>
       ) : (
@@ -60,9 +63,10 @@ export function Navbar() {
               variant={pathname === "/login" ? "default" : "ghost"}
               className="w-full justify-start"
               onClick={() => setIsOpen(false)}
+              aria-current={pathname === "/login" ? "page" : undefined}
             >
-              <Icons.logIn className="mr-2 h-4 w-4" />
-              Sign In
+              <Icons.logIn className="mr-2 h-4 w-4" aria-hidden="true" />
+              Logg inn
             </Button>
           </Link>
           <Link href="/register">
@@ -70,9 +74,10 @@ export function Navbar() {
               variant={pathname === "/register" ? "default" : "ghost"}
               className="w-full justify-start"
               onClick={() => setIsOpen(false)}
+              aria-current={pathname === "/register" ? "page" : undefined}
             >
-              <Icons.userPlus className="mr-2 h-4 w-4" />
-              Sign Up
+              <Icons.userPlus className="mr-2 h-4 w-4" aria-hidden="true" />
+              Registrer deg
             </Button>
           </Link>
         </>
