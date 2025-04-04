@@ -2,15 +2,13 @@ import { NextResponse } from "next/server"
 import prisma from "@/lib/prisma"
 
 interface RouteParams {
-  params: Promise<{ slug: string; id: string }> | { slug: string; id: string }
+  params: Promise<{ slug: string; id: string }>
 }
 
-export async function POST(
-  request: Request,
-  { params }: RouteParams
-) {
+export async function POST(request: Request, props: RouteParams) {
+  const params = await props.params;
   try {
-    const { slug, id } = await params
+    const { slug, id } = params
     const { content, authorName, authorEmail } = await request.json()
 
     if (!content || !authorName) {
@@ -55,12 +53,10 @@ export async function POST(
   }
 }
 
-export async function GET(
-  request: Request,
-  { params }: RouteParams
-) {
+export async function GET(request: Request, props: RouteParams) {
+  const params = await props.params;
   try {
-    const { slug, id } = await params
+    const { slug, id } = params
     const feature = await prisma.feature.findFirst({
       where: {
         id,

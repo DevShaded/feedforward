@@ -48,10 +48,8 @@ export async function GET(
   }
 }
 
-export async function PATCH(
-  request: Request,
-  { params }: { params: { slug: string; id: string } }
-) {
+export async function PATCH(request: Request, props: { params: Promise<{ slug: string; id: string }> }) {
+  const params = await props.params;
   try {
     const { status } = await request.json()
 
@@ -98,10 +96,8 @@ export async function PATCH(
   }
 }
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { slug: string; id: string } }
-) {
+export async function DELETE(request: Request, props: { params: Promise<{ slug: string; id: string }> }) {
+  const params = await props.params;
   try {
     const feature = await prisma.feature.findFirst({
       where: {
