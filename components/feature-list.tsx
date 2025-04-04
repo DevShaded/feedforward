@@ -168,9 +168,9 @@ export function FeatureList({ boardSlug, initialFeatures }: FeatureListProps) {
                   {feature.priority > 0 && (
                     <span className={cn(
                       "text-xs px-2 py-1 rounded-full",
-                      feature.priority === 3 && "bg-destructive/10 text-destructive",
-                      feature.priority === 2 && "bg-warning/10 text-warning",
-                      feature.priority === 1 && "bg-primary/10 text-primary"
+                      feature.priority === 3 && "bg-destructive/10 dark:bg-destructive/20 text-destructive",
+                      feature.priority === 2 && "bg-warning/10 dark:bg-warning/20 text-warning",
+                      feature.priority === 1 && "bg-primary/10 dark:bg-primary/20 text-primary"
                     )}>
                       {feature.priority === 3 ? "Critical" :
                        feature.priority === 2 ? "High" :

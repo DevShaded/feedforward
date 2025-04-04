@@ -31,7 +31,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           </blockquote>
         </div>
       </div>
-      <div className="lg:p-8">
+      <div className="lg:p-8 dark:bg-background">
         {children}
       </div>
     </div>

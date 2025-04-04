@@ -20,17 +20,17 @@ export const Footer = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="bg-gray-900 text-white py-8 sm:py-12"
+      className="bg-card text-card-foreground py-8 sm:py-12"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
           <div className="text-center sm:text-left">
             <h2 className="text-xl sm:text-2xl font-bold">FeedForward</h2>
-            <p className="text-gray-400 mt-2 text-sm sm:text-base">© {new Date().getFullYear()} Alle rettigheter reservert</p>
+            <p className="text-muted-foreground mt-2 text-sm sm:text-base">© {new Date().getFullYear()} Alle rettigheter reservert</p>
           </div>
           <div className="flex gap-4 sm:gap-6">
-            <Link href="/dashboard" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Dashboard</Link>
-            <Link href="/features" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Features</Link>
+            <Link href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors text-sm sm:text-base">Dashboard</Link>
+            <Link href="/features" className="text-muted-foreground hover:text-foreground transition-colors text-sm sm:text-base">Features</Link>
           </div>
         </div>
       </div>
