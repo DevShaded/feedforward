@@ -1,11 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Icons } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -32,7 +29,6 @@ interface RecentActivity {
 }
 
 export default function DashboardPage() {
-  const router = useRouter()
   const [boards, setBoards] = useState<Board[]>([])
   const [stats, setStats] = useState({
     totalFeatures: 0,

@@ -43,7 +43,6 @@ export default function FeatureDetailPage({
   const [error, setError] = useState<string | null>(null)
   const [isVoting, setIsVoting] = useState(false)
   const [hasVoted, setHasVoted] = useState<boolean | null>(null)
-  const [isDownvote, setIsDownvote] = useState<boolean | null>(null)
   const [content, setContent] = useState("")
   const [authorName, setAuthorName] = useState("")
   const [authorEmail, setAuthorEmail] = useState("")
@@ -101,7 +100,7 @@ export default function FeatureDetailPage({
         throw new Error(data.message || "Something went wrong")
       }
 
-      const { voteCount, hasVoted: newHasVoted, isDownvote: newIsDownvote } = await response.json()
+      const { voteCount, hasVoted: newHasVoted } = await response.json()
 
       setFeature(prev => prev ? {
         ...prev,
@@ -111,7 +110,6 @@ export default function FeatureDetailPage({
         }
       } : null)
       setHasVoted(newHasVoted)
-      setIsDownvote(newIsDownvote)
     } catch (error) {
       setError(error instanceof Error ? error.message : "Something went wrong")
     } finally {
@@ -175,7 +173,7 @@ export default function FeatureDetailPage({
               <Icons.x className="h-12 w-12 text-muted-foreground" />
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold tracking-tight">Feature not found</h3>
-                <p className="text-muted-foreground">This feature request doesn't exist</p>
+                <p className="text-muted-foreground">This feature request doesn&apos;t exist</p>
               </div>
             </div>
           </CardContent>
@@ -199,8 +197,8 @@ export default function FeatureDetailPage({
         <CardContent className="p-6">
           <div className="flex items-start justify-between">
             <div className="space-y-1">
-              <h1 className="text-2xl font-bold tracking-tight">
-                {feature.title}
+              <h1 className="text-2xl font-semibold tracking-tight">
+                &ldquo;{feature.title}&rdquo;
               </h1>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span>Lagt inn av {feature.authorName}</span>
